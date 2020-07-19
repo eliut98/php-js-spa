@@ -4,7 +4,7 @@ class Layout
 {
     public static function setView($view)
     {
-        ?>
+?>
         <!DOCTYPE html>
         <html lang="en">
 
@@ -41,15 +41,12 @@ class Layout
             <div id="root">
                 <?php require $view; ?>
             </div>
+            
+            <!-- LitSelector is a small and fast JavaScript library. 
+            It allows to select elements of the DOM in a very easy and efficient way. -->
+            <script src="https://cdn.jsdelivr.net/npm/lit-selector@4.1.0/index.min.js"></script>
 
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-            <script src="src/js/Router.js"></script>
-
-            <?php if (isset($title)) : ?>
-                <script>
-                    document.title = <?php echo "'$title';"; ?>
-                </script>
-            <?php endif; ?>
+            <script src="src/js/main.js"></script>
 
         </body>
 

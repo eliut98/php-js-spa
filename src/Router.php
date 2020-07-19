@@ -2,21 +2,18 @@
 
 class Router
 {
-    protected $routes;
-    public static function load($file)
+    protected static $routes = [];
+
+    public static function load($routes)
     {
-        $router = new Router();
-        require $file;
-        return $router;
+        self::$routes = $routes;
+        return new self();
     }
-    public function define($routes)
+
+    public static function to($uri)
     {
-        $this->routes = $routes;
-    }
-    public function to($uri)
-    {
-        if (array_key_exists($uri, $this->routes)) {
-            return $this->routes[$uri];
+        if (array_key_exists($uri, self::$routes)) {
+            return './controllers/' . self::$routes[$uri] . '.php';
         }
         throw new Exception("No route defined for this URI.");
     }

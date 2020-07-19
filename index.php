@@ -2,8 +2,10 @@
 
 require_once 'src/bootstrap.php';
 
-$uri = Request::uri();
+$routes = require 'routes.php';
 
-$view =  Router::load('routes.php')->to($uri);
+$uri = $_SERVER['REQUEST_URI'];
+
+$view = Router::load($routes)::to($uri);
 
 Layout::setView($view);

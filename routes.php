@@ -1,7 +1,7 @@
 <?php
 
-$router->define([
-    '' => 'controllers/index.php',
-    'about' => 'controllers/about.php',
-    'contact' => 'controllers/contact.php'
-]);
+return [
+    '/' => 'index',
+    '/about' => 'about',
+    '/contact' => 'contact'
+];
